@@ -2,37 +2,48 @@
 
 A decentralized video upload and streaming app built on Shelby storage protocol.
 
-## Overview
+## Features
 
-shelby-video-drop lets users upload videos directly to the Shelby network and share a permanent, decentralized link. No centralized servers, no takedowns.
+- Upload videos directly to Shelby — no centralized servers
+- Stream videos from anywhere using a blob ID
+- Supports MP4, MOV, AVI, MKV formats
+- Chunked uploads for large files
+- Aptos wallet authentication
+- Permanent storage with erasure coding
+
+## Why Shelby?
+
+Traditional video platforms can delete or restrict your content. With Shelby, your video lives on a decentralized network. Nobody can take it down.
 
 ## How it works
 
-1. User selects a video file
-2. File is chunked and uploaded to Shelby via the TypeScript SDK
-3. A blob ID is returned and stored on Aptos
-4. Anyone with the blob ID can stream the video directly from Shelby
-
-## Stack
-
-- Shelby TypeScript SDK
-- Aptos TypeScript SDK
-- Next.js frontend
-- Petra wallet integration
+1. Connect your Petra wallet
+2. Select a video file
+3. File is chunked and uploaded to Shelby via the TypeScript SDK
+4. A blob ID is returned and stored on Aptos
+5. Share the blob ID — anyone can stream your video directly from Shelby
 
 ## Project Structure
 
 shelby-video-drop/
 ├── src/
-│   ├── upload.ts      
-│   ├── stream.ts      
-│   └── config.ts      
+│   ├── upload.ts      # handles video uploads to Shelby
+│   ├── stream.ts      # reads and streams blobs from Shelby
+│   └── config.ts      # configuration and constants
 ├── index.ts           
-└── package.json
+├── package.json
+└── tsconfig.json
 
-## Status
+## Roadmap
 
-Work in progress — testnet only.
+- [x] Core upload logic
+- [x] Blob streaming
+- [x] Config and environment setup
+- [ ] Frontend upload UI
+- [ ] Drag and drop support
+- [ ] Video preview player
+- [ ] Wallet connect integration
+- [ ] Mainnet support
 
 ## Setup
 
@@ -43,3 +54,7 @@ Set your environment variables in .env:
 
 SHELBY_RPC=https://rpc.shelby.xyz
 SHELBY_NETWORK=testnet
+
+## Status
+
+Work in progress — testnet only.
